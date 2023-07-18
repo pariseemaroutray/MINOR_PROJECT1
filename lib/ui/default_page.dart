@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:minorproject2/ui/piechart.dart';
+import 'package:minorproject2/ui/trans_details.dart';
 //import '../../controllers/default_controller.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-// import 'piechart.dart';
+import 'piechart.dart';
 import 'calenderapp.dart';
+import 'faqs.dart';
 import 'feedback.dart';
 import 'loginpage.dart';
 import 'addAccount.dart';
@@ -57,7 +60,9 @@ class DefaultPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => AccountDetailsApp()),
                 );
               } else if (value == 3) {
-                print("FAQs is selected.");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Faqs()));
               }
             },
           ),
@@ -83,14 +88,20 @@ class DefaultPage extends StatelessWidget {
                 icon: const Icon(Icons.pie_chart),
                 color: Colors.white,
                 onPressed: () {
-                  print("details");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PieChartStats()),
+                  );
                 },
               ),
               IconButton(
                 icon: const Icon(Icons.text_snippet_outlined),
                 color: Colors.white,
                 onPressed: () {
-                  print("details");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TransactionDetailsPage()),
+                  );
                 },
               ),
             ],
@@ -234,5 +245,5 @@ class ChartData {
   final double value1;
   final double value2;
 
-  ChartData(this.category, this.value1, this.value2);
+  ChartData(this.category, this.value1,this.value2);
 }
